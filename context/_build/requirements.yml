@@ -1,0 +1,8 @@
+---
+collections:
+  # - ansible.builtin
+  - ansible.netcommon
+  - ansible.posix
+  - ansible.utils
+  - community.general
+  - kubernetes.core
