@@ -1,0 +1,2 @@
+bash [platform:rpm]
+git [platform:rpm]
