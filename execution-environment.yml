@@ -1,0 +1,18 @@
+---
+version: 1
+build_arg_defaults: 
+  ANSIBLE_GALAXY_CLI_COLLECTION_OPTS: "-v"
+  EE_BASE_IMAGE: 'quay.io/ansible/ansible-runner@sha256:bdf619a48b1a7cb770a3eb388095b84867fe2da4c0de8f9b3c5792173737c37d'
+  EE_BUILDER_IMAGE: 'quay.io/ansible/ansible-builder@sha256:75c4e4b5be6aab3386381b1e202ad382002f6830fd4b524bcd5ddc718e4f6a89'
+ansible_config: 'ansible.cfg' 
+dependencies: 
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+additional_build_steps: 
+  prepend: |
+    RUN whoami
+    RUN cat /etc/os-release
+  append:
+    - RUN echo This is a post-install command!
+    - RUN ls -la /etc
